@@ -33,13 +33,14 @@ let incrementIncreaseTimer = setInterval(increment, 1000);
 
 const clickIncrement = () => {
     total += 1;
-    autoSave();
+    increment();
 };
 
 const cursorIncrement = () => {
     cursor += 1;
     incrementValue += 1;
     document.getElementById('cursor-total').innerHTML = cursor;
+    increment();
 };
 
 document
