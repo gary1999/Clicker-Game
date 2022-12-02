@@ -1,14 +1,14 @@
-const saveGame = () => {
-    localStorage.setItem('storageTotal', total);
-    document.getElementById('total').innerHTML = total;
-};
-
 const loadGame = () => {
     if (localStorage.getItem('storageTotal')) {
         total = parseInt(localStorage.getItem('storageTotal'));
     } else {
         total = 0;
     }
+};
+
+const saveGame = () => {
+    localStorage.setItem('storageTotal', total);
+    document.getElementById('total').innerHTML = total;
 };
 
 const resetGame = () => {

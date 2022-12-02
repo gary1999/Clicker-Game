@@ -5,8 +5,10 @@ function getRandomInt(min, max) {
 }
 
 let total;
+let clicksPerSecond = 0;
 let incrementValue = 0;
-// let cursor = 0;
+let cursor = 0;
+let isCursor = false;
 // let incrementIncreaseTimer;
 
 if (localStorage.getItem('storageTotal')) {
@@ -15,7 +17,14 @@ if (localStorage.getItem('storageTotal')) {
     total = 0;
 }
 
+const autoSave = () => {
+    localStorage.setItem('storageTotal', total);
+    document.getElementById('total').innerHTML = total;
+};
+
 const increment = () => {
+    clicksPerSecond = cursor;
+    document.getElementById('money-per-second').innerHTML = clicksPerSecond;
     total += incrementValue;
     autoSave();
 };
@@ -28,18 +37,9 @@ const clickIncrement = () => {
 };
 
 const cursorIncrement = () => {
+    cursor += 1;
     incrementValue += 1;
-    // console.log(cursor);
-    console.log(incrementValue);
-};
-
-const autoSave = () => {
-    localStorage.setItem('storageTotal', total);
-    document.getElementById('total').innerHTML = total;
-};
-
-const stopIncrement = () => {
-    clearInterval(incrementIncreaseTimer);
+    document.getElementById('cursor-total').innerHTML = cursor;
 };
 
 document
@@ -47,10 +47,6 @@ document
     .addEventListener('click', clickIncrement);
 
 document.getElementById('total').innerHTML = total;
-
-document
-    .getElementById('stopIncrementButton')
-    .addEventListener('click', stopIncrement);
 
 document
     .getElementById('cursor-increase')
