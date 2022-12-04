@@ -48,6 +48,7 @@ a {
     height: 100%;
     margin-left: 20px;
     border: 2px solid #00A4BD;
+    padding-left: 10px;
 }
 
 #items-owned-container ul {
